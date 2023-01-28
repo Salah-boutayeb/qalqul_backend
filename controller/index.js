@@ -23,8 +23,9 @@ const getPost = async (req, res) => {
 };
 
 const getRealtimeComments = (req, res) => {
+  console.log("helloo webhook");
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = process.env.ACCESS_TOKEN;
+  let VERIFY_TOKEN = "ertdfgcvb12345";
 
   // Parse the query params
   let mode = req.query["hub.mode"];
