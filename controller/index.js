@@ -24,9 +24,9 @@ const getPost = async (req, res) => {
 const webhook = (req, res) => {
   console.log(req.body);
   console.log(req.body.object);
-  console.log(req.body.entry);
+  console.log(typeof req.body.entry);
 
-  res.status(200).end();
+  res.status(200);
 };
 const getRealtimeComments = (req, res) => {
   console.log("helloo webhook");
