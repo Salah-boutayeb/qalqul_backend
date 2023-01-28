@@ -23,8 +23,16 @@ const getPost = async (req, res) => {
 };
 const webhook = (req, res) => {
   console.log(req.body);
-  console.log(req.body.object);
+  console.log(req.body.entry[0]);
   console.log(typeof req.body.entry);
+
+  // req.body.entry.forEach((entry) => {
+  //   entry.messaging.forEach((event) => {
+  //     if (event.message && event.message.text) {
+  //       sendMessage(event);
+  //     }
+  //   });
+  // });
 
   res.status(200);
 };
