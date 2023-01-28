@@ -27,7 +27,7 @@ const webhook = (req, res) => {
   console.log(typeof req.body.entry);
 
   req.body.entry.forEach((entry) => {
-    console.log("\n\n" + entry);
+    console.log("\n\n" + JSON.stringify(entry));
     // entry.messaging.forEach((event) => {
     //   if (event.message && event.message.text) {
     //     sendMessage(event);
