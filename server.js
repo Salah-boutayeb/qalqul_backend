@@ -13,4 +13,5 @@ const port = process.env.PORT || 5555;
 app.use("/", require("./routes/index"));
 app.listen(port, () => {
   console.log(`server's runing on port ${port}`);
+  console.log(`server's runing on port ${port}`);
 });
