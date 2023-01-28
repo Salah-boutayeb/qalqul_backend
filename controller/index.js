@@ -27,11 +27,11 @@ const webhook = (req, res) => {
   console.log(typeof req.body.entry);
 
   req.body.entry.forEach((entry) => {
-    entry.messaging.forEach((event) => {
-      if (event.message && event.message.text) {
-        sendMessage(event);
-      }
-    });
+    // entry.messaging.forEach((event) => {
+    //   if (event.message && event.message.text) {
+    //     sendMessage(event);
+    //   }
+    // });
   });
 
   res.status(200);
