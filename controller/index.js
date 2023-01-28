@@ -24,7 +24,8 @@ const getPost = async (req, res) => {
 const webhook = (req, res) => {
   console.log(req.body);
   if (req.body.object === "page") {
-    req.body.changes.forEach((entry) => {
+    req.body.entry.forEach((entry) => {
+      console.log(entry);
       entry.messaging.forEach((event) => {
         if (event.message && event.message.text) {
           // sendMessage(event);
