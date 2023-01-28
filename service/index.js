@@ -22,6 +22,14 @@ const getPostsService = async () => {
   return data;
 };
 
+const deletePostService = async (id) => {
+  let data = null;
+  await instance.delete(id).then((response) => {
+    data = response.data;
+  });
+  return getPostsService();
+};
+
 const getPostService = async (id) => {
   let data = null;
   await instance.get("" + id).then((response) => {
@@ -33,4 +41,9 @@ const getPostService = async (id) => {
   console.log(data);
   return data;
 };
-module.exports = { createPost, getPostsService, getPostService };
+module.exports = {
+  createPost,
+  getPostsService,
+  getPostService,
+  deletePostService,
+};

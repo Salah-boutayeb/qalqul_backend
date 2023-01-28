@@ -2,8 +2,15 @@ const {
   createPost,
   getPostsService,
   getPostService,
+  deletePostService,
 } = require("../service/index");
 
+const deletePost = async (req, res) => {
+  const id = req.params.id;
+
+  const data = await deletePostService(id);
+  res.status(200).send(data);
+};
 const postPost = async (req, res) => {
   const msg = req.body.message;
 
@@ -60,4 +67,11 @@ const getRealtimeComments = (req, res) => {
     }
   }
 };
-module.exports = { postPost, getPosts, getPost, getRealtimeComments, webhook };
+module.exports = {
+  postPost,
+  getPosts,
+  getPost,
+  getRealtimeComments,
+  webhook,
+  deletePost,
+};
