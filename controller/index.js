@@ -21,7 +21,20 @@ const getPost = async (req, res) => {
   const data = await getPostService(id);
   res.status(200).send(data);
 };
-
+const webhook = (req, res) => {
+  console.log(req.body);
+  if (req.body.object === "page") {
+    req.body.entry.forEach((entry) => {
+      entry.messaging.forEach((event) => {
+        if (event.message && event.message.text) {
+          // sendMessage(event);
+          console.log(event.message);
+        }
+      });
+    });
+    res.status(200).end();
+  }
+};
 const getRealtimeComments = (req, res) => {
   console.log("helloo webhook");
   // Your verify token. Should be a random string.
@@ -45,4 +58,4 @@ const getRealtimeComments = (req, res) => {
     }
   }
 };
-module.exports = { postPost, getPosts, getPost, getRealtimeComments };
+module.exports = { postPost, getPosts, getPost, getRealtimeComments, webhook };
